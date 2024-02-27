@@ -20,9 +20,18 @@ namespace Exercicios_Mocks.Tests
         [Trait("Entrada Válida","")]
         public void GetProduto_ID_Valido()
         {
-            _produtoService.GetProduto(1);
+            Produto produto = new Produto(1, "Persona 3 Reload", 100);
+
+            _repositoryMock.Setup(x => x.GetById(produto.Id)).Returns(produto);
+
+            var result = _produtoService.GetProduto(1);
 
             _repositoryMock.Verify(x => x.GetById(1), Times.Once);
+
+            result
+                .Should()
+                .BeOfType<Produto>();
+
         }
 
         #endregion
