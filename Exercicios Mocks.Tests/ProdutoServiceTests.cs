@@ -57,7 +57,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentNullException>();
+                .Throw<ArgumentNullException>()
+                .Where(e => e.Message.StartsWith("O produto não pode ser nulo."));
         }
 
         [Fact(DisplayName = "Adicionar produto sem nome")]
@@ -70,7 +71,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentException>();
+                .Throw<ArgumentException>()
+                .Where(e => e.Message.StartsWith("O nome do produto não pode ser vazio ou nulo."));
         }
 
         [Fact(DisplayName = "Adicionar produto sem nome")]
@@ -83,7 +85,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentException>();
+                .Throw<ArgumentException>()
+                .Where(e => e.Message.StartsWith("O nome do produto não pode ser vazio ou nulo."));
         }
 
         [Fact(DisplayName = "Adicionar produto preço negativo")]
@@ -96,7 +99,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentException>();
+                .Throw<ArgumentException>()
+                .Where(e => e.Message.StartsWith("O preço do produto deve ser maior que zero."));
         }
         #endregion
 
@@ -124,7 +128,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentNullException>();
+                .Throw<ArgumentNullException>()
+                .Where(e => e.Message.StartsWith("O produto não pode ser nulo."));
         }
 
         [Fact(DisplayName = "Atualiza produto inexistente na base")]
@@ -140,7 +145,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<InvalidOperationException>();
+                .Throw<InvalidOperationException>()
+                .Where(e => e.Message.StartsWith("Não é possível atualizar o produto com ID"));
         }
 
 
@@ -157,7 +163,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentException>();
+                .Throw<ArgumentException>()
+                .Where(e => e.Message.StartsWith("O nome do produto não pode ser vazio ou nulo."));
         }
 
         [Fact(DisplayName = "Atualiza produto com nome vazio")]
@@ -173,7 +180,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentException>();
+                .Throw<ArgumentException>()
+                .Where(e => e.Message.StartsWith("O nome do produto não pode ser vazio ou nulo."));
         }
 
         [Fact(DisplayName = "Atualiza produto com preço negativo")]
@@ -189,7 +197,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<ArgumentException>();
+                .Throw<ArgumentException>()
+                .Where(e => e.Message.StartsWith("O preço do produto deve ser maior que zero."));
         }
         #endregion
 
@@ -218,7 +227,8 @@ namespace Exercicios_Mocks.Tests
 
             action
                 .Should()
-                .Throw<InvalidOperationException>();
+                .Throw<InvalidOperationException>()
+                .Where(e => e.Message.StartsWith("Não é possível excluir o produto com ID"));
         }
         #endregion
 
